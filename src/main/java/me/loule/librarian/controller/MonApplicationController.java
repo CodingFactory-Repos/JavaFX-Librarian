@@ -2,6 +2,7 @@ package me.loule.librarian.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -9,6 +10,9 @@ public class MonApplicationController {
 
     @FXML
     private Button Supprimer;
+
+    @FXML
+    private TableView<?> Tableau;
 
     @FXML
     private Button Valider;
