@@ -46,7 +46,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="500.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.loule.librarian.controller.BliblioController">
+<VBox prefHeight="500.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.loule.librarian.controller.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -156,11 +156,10 @@
                   </VBox>
                </children>
             </HBox>
-            <MenuBar prefHeight="28.0" prefWidth="149.0">
+            <MenuBar prefHeight="28.0" prefWidth="168.0">
               <menus>
-                <Menu mnemonicParsing="false" text="File">
+                <Menu mnemonicParsing="false" text="Fichier">
                   <items>
-                    <MenuItem fx:id="Fichier" mnemonicParsing="false" text="Fichier" />
                         <MenuItem fx:id="Quitter" mnemonicParsing="false" text="Quitter" />
                   </items>
                 </Menu>
@@ -176,14 +175,14 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TableView fx:id="TableTableau" layoutX="14.0" layoutY="49.0" prefHeight="219.0" prefWidth="524.0">
+            <TableView fx:id="Tableau" layoutX="14.0" layoutY="49.0" prefHeight="219.0" prefWidth="524.0">
               <columns>
-                <TableColumn fx:id="ColumnTitre" prefWidth="81.0" text="Titre" />
-                <TableColumn fx:id="ColumnAuteur" prefWidth="86.0" text="Auteur" />
-                  <TableColumn fx:id="ColumnResume" prefWidth="142.0" text="Résumé" />
-                  <TableColumn fx:id="ColumnColonne" prefWidth="70.0" text="Colonne" />
-                  <TableColumn fx:id="ColumnRangee" prefWidth="70.0" text="Rangée" />
-                  <TableColumn fx:id="ColumnParution" prefWidth="74.0" text="Parution" />
+                <TableColumn fx:id="Titre" prefWidth="81.0" text="Titre" />
+                <TableColumn fx:id="Auteur" prefWidth="86.0" text="Auteur" />
+                  <TableColumn fx:id="Resume" prefWidth="142.0" text="Résumé" />
+                  <TableColumn fx:id="Colonne" prefWidth="70.0" text="Colonne" />
+                  <TableColumn fx:id="Rangee" prefWidth="70.0" text="Rangée" />
+                  <TableColumn fx:id="Parution" prefWidth="74.0" text="Parution" />
               </columns>
             </TableView>
             <Button fx:id="Supprimer" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" text="Supprimer" />

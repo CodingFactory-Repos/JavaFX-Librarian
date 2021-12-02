@@ -32,9 +32,6 @@ public class BliblioController implements Initializable {
         private TableColumn<User, String> ColumnTitre;
 
         @FXML
-        private MenuItem Fichier;
-
-        @FXML
         private MenuItem Quitter;
 
         @FXML
