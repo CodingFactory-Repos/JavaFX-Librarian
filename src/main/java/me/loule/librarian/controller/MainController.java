@@ -1,73 +1,45 @@
 package me.loule.librarian.controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.*;
-import me.loule.librarian.module.TableViews;
+import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class MainController {
 
-public class MainController implements Initializable {
+    @FXML
+    private MenuItem Fichier;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnAuteur;
+    @FXML
+    private MenuItem Quitter;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnColonne;
+    @FXML
+    private Button Supprimer;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnParution;
+    @FXML
+    private TableView<?> Tableau;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnRangee;
+    @FXML
+    private Button Valider;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnResume;
+    @FXML
+    private TextField txtAuteur;
 
-        @FXML
-        private TableColumn<TableViews, String> ColumnTitre;
+    @FXML
+    private TextField txtColonne;
 
-        @FXML
-        private MenuItem Fichier;
+    @FXML
+    private TextField txtParution;
 
-        @FXML
-        private MenuItem Quitter;
+    @FXML
+    private TextField txtRangee;
 
-        @FXML
-        private Button Supprimer;
+    @FXML
+    private TextArea txtResume;
 
-        @FXML
-        private TableView<TableViews> TableTableau;
+    @FXML
+    private TextField txtTitre;
 
-        @FXML
-        private Button Valider;
-
-        @FXML
-        private TextField txtAuteur;
-
-        @FXML
-        private TextField txtColonne;
-
-        @FXML
-        private TextField txtParution;
-
-        @FXML
-        private TextField txtRangee;
-
-        @FXML
-        private TextArea txtResume;
-
-        @FXML
-        private TextField txtTitre;
-
-
-
-
-
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 }
