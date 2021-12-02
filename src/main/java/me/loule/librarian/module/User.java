@@ -2,45 +2,72 @@ package me.loule.librarian.module;
 
         public class User {
 
-        private String ColumnTitre;
-        private String ColumnResume;
-        private String ColumnRangee;
-        private String ColumnParution;
-        private String ColumnColonne;
-        private String ColumnAuteur;
+        private String Titre;
+        private String Resume;
+        private String Rangee;
+        private String Parution;
+        private String Colonne;
+        private String Auteur;
 
-        public User (String ColumnTitre, String ColumnResume, String ColumnRangee, String ColumnParution,  String ColumnColonne, String ColumnAuteur ){
-        this.ColumnTitre = ColumnTitre;
-        this.ColumnResume = ColumnResume;
-        this.ColumnRangee = ColumnRangee;
-        this.ColumnParution = ColumnParution;
-        this.ColumnColonne = ColumnColonne;
-        this.ColumnAuteur = ColumnAuteur;
+        public User (String Titre, String Resume, String Rangee, String Parution,  String Colonne, String Auteur ){
+        this.Titre = Titre;
+        this.Resume = Resume;
+        this.Rangee = Rangee;
+        this.Parution = Parution;
+        this.Colonne = Colonne;
+        this.Auteur = Auteur;
+        }
+        
+
+                public String getTitre() {
+        return Titre;
         }
 
-        public String getColumnTitre() {
-        return ColumnTitre;
+                public void setTitre(String titre) {
+                        Titre = titre;
+                }
+
+
+                public String getResume() {
+        return Resume;
         }
 
-        public String getColumnResume() {
-        return ColumnResume;
+                public void setResume(String resume) {
+                        Resume = resume;
+                }
+
+
+        public String getRangee() {
+        return Rangee;
         }
 
-        public String getColumnRangee() {
-        return ColumnRangee;
+                public void setRangee(String rangee) {
+                        Rangee = rangee;
+                }
+
+        public String getParution() {
+        return Parution;
         }
 
-        public String getColumnParution() {
-        return ColumnParution;
+                public void setParution(String parution) {
+                        Parution = parution;
+                }
+
+        public String getolonne() {
+        return Colonne;
         }
 
-        public String getColumnColonne() {
-        return ColumnColonne;
+                public void setColonne(String colonne) {
+                        Colonne = colonne;
+                }
+
+        public String getAuteur() {
+        return Auteur;
         }
 
-        public String getColumnAuteur() {
-        return ColumnAuteur;
-        }
+                public void setAuteur(String auteur) {
+                        Auteur = auteur;
+                }
         }
 
 

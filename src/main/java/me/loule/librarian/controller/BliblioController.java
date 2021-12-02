@@ -2,6 +2,7 @@ package me.loule.librarian.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -63,28 +64,45 @@ public class BliblioController implements Initializable {
 
         @FXML
         private TextField txtTitre;
-        ObservableList<User> list = FXCollections.observableArrayList(
-                new User("fre","frnuynfre","gkidg","frazfe","frfiujev","vvhjjhngr"),
-                new User("frfee","frfnhfre","g,idg","ferfe","frpkfev","vvhhgvgr"),
-                new User("frvee","frdvgfre","gdnujg","rfrfe","frfpoev","vvhfcdvgr"),
-                new User("frsvre","ffbfrfre","gbthdg","ftrfe","frfooiev","vvdcfhgr"),
-                new User("frbtre","frfre","gdgfrg","fryufe","frfoiev","vvhdcfdgr"),
-                new User("frvre","fryjukfre","gdxedg","fuirfe","froifev","vvhxwsgr")
-
-
-        );
 
 
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
-                ColumnTitre.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnTitre"));
-                ColumnResume.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnResume"));
-                ColumnRangee.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnRangee"));
-                ColumnParution.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnParution"));
-                ColumnColonne.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnColonne"));
-                ColumnAuteur.setCellValueFactory(new PropertyValueFactory<User, String>("ColumnAuteur"));
+                ColumnTitre.setCellValueFactory(new PropertyValueFactory<User, String>("Titre"));
+                ColumnResume.setCellValueFactory(new PropertyValueFactory<User, String>("Resume"));
+                ColumnRangee.setCellValueFactory(new PropertyValueFactory<User, String>("Rangee"));
+                ColumnParution.setCellValueFactory(new PropertyValueFactory<User, String>("Parution"));
+                ColumnColonne.setCellValueFactory(new PropertyValueFactory<User, String>("Colonne"));
+                ColumnAuteur.setCellValueFactory(new PropertyValueFactory<User, String>("Auteur"));
 
 
-                TableTableau.setItems(list);
+
         }
+
+        @FXML
+        void submit(ActionEvent event) {
+                User user = new User(txtAuteur.getText(),
+                        (txtColonne.getText()),
+                        (txtResume.getText()),
+                        (txtParution.getText()),
+                        (txtRangee.getText()),
+                        (txtTitre.getText()));
+                ObservableList<User> users = TableTableau.getItems();
+                users.add(user);
+                TableTableau.setItems(users);
+        }
+
+        @FXML
+        void removeUser(ActionEvent event){
+                int selectedID = TableTableau.getSelectionModel().getSelectedIndex();
+                TableTableau.getItems().remove(selectedID);
+        }
+
+
+
+
+
+
+
+
 }
