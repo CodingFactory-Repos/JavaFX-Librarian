@@ -160,7 +160,8 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="Fichier" mnemonicParsing="false" text="Fichier" />
+                        <MenuItem fx:id="Quitter" mnemonicParsing="false" text="Quitter" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">

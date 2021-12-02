@@ -2,11 +2,18 @@ package me.loule.librarian.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class MonApplicationController {
+public class MonApplicationController  {
+
+    @FXML
+    private MenuItem Fichier;
+
+    @FXML
+    private MenuItem Quitter;
 
     @FXML
     private Button Supprimer;
