@@ -176,14 +176,14 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <TableView fx:id="Tableau" layoutX="14.0" layoutY="49.0" prefHeight="219.0" prefWidth="524.0">
+            <TableView fx:id="TableTableau" layoutX="14.0" layoutY="49.0" prefHeight="219.0" prefWidth="524.0">
               <columns>
-                <TableColumn prefWidth="81.0" text="Titre" />
-                <TableColumn prefWidth="86.0" text="Auteur" />
-                  <TableColumn prefWidth="142.0" text="Résumé" />
-                  <TableColumn prefWidth="70.0" text="Colonne" />
-                  <TableColumn prefWidth="70.0" text="Rangée" />
-                  <TableColumn prefWidth="74.0" text="Parution" />
+                <TableColumn fx:id="ColumnTitre" prefWidth="81.0" text="Titre" />
+                <TableColumn fx:id="ColumnAuteur" prefWidth="86.0" text="Auteur" />
+                  <TableColumn fx:id="ColumnResume" prefWidth="142.0" text="Résumé" />
+                  <TableColumn fx:id="ColumnColonne" prefWidth="70.0" text="Colonne" />
+                  <TableColumn fx:id="ColumnRangee" prefWidth="70.0" text="Rangée" />
+                  <TableColumn fx:id="ColumnParution" prefWidth="74.0" text="Parution" />
               </columns>
             </TableView>
             <Button fx:id="Supprimer" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" text="Supprimer" />
