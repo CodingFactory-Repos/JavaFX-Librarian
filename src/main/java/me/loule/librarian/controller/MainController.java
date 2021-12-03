@@ -86,7 +86,7 @@ public class MainController implements Initializable {
             } else if(Integer.parseInt(textFieldRow.getText()) < 1 || Integer.parseInt(textFieldRow.getText()) > 7) {
                 textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 7");
             } else if(Integer.parseInt(textFieldColumn.getText()) < 1 || Integer.parseInt(textFieldColumn.getText()) > 5) {
-                textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 7");
+                textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 5");
             } else {
                 if(lastBookSelected != -1) { // If a book is selected
                     // Edit lastBookSelected
