@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 import me.loule.librarian.model.BookModel;
 
 import java.net.URL;
@@ -57,10 +58,17 @@ public class MainController implements Initializable {
     @FXML
     private Button buttonDeleteBook;
 
+    @FXML
+    private Text textLogs;
+
+    @FXML
+    private MenuItem menuItemQuit;
+
     int lastBookSelected = -1;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Initialize the table
         tableColumTitle.setCellValueFactory(new PropertyValueFactory<>("TableColumTitle"));
         tableColumAuthor.setCellValueFactory(new PropertyValueFactory<>("TableColumAuthor"));
         tableColumSummary.setCellValueFactory(new PropertyValueFactory<>("TableColumSummary"));
@@ -70,28 +78,50 @@ public class MainController implements Initializable {
 
         tbData.setItems(BookModels); // Show defaults books
 
-        buttonAddBook.setOnMouseClicked(event -> {
-            System.out.println(lastBookSelected);
-            if(lastBookSelected != -1) {
-                System.out.println("Book selected");
-                // Edit lastBookSelected
-                BookModels.get(lastBookSelected).setTableColumTitle(textFieldTitle.getText());
-                BookModels.get(lastBookSelected).setTableColumAuthor(textFieldAuthor.getText());
-                BookModels.get(lastBookSelected).setTableColumSummary(textAreaSummary.getText());
-                BookModels.get(lastBookSelected).setTableColumColumn(Integer.parseInt(textFieldColumn.getText()));
-                BookModels.get(lastBookSelected).setTableColumRow(Integer.parseInt(textFieldRow.getText()));
-                BookModels.get(lastBookSelected).setTableColumParution(Integer.parseInt(textFieldParution.getText()));
-                lastBookSelected = -1;
-
-                // Show changements
-                tbData.refresh();
+        buttonAddBook.setOnMouseClicked(event -> { // On click add a new book
+            if(textFieldTitle.getText().isEmpty() || textFieldAuthor.getText().isEmpty() || textFieldParution.getText().isEmpty() || textFieldRow.getText().isEmpty() || textFieldColumn.getText().isEmpty() || textAreaSummary.getText().isEmpty()) {
+                textLogs.setText("Veuillez remplir tous les champs");
+            } else if(!textFieldColumn.getText().matches("[0-9]+") || !textFieldRow.getText().matches("[0-9]+") || !textFieldParution.getText().matches("[0-9]+")) {
+                textLogs.setText("Veuillez remplir les champs avec des nombres");
+            } else if(Integer.parseInt(textFieldRow.getText()) < 1 || Integer.parseInt(textFieldRow.getText()) > 7) {
+                textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 7");
+            } else if(Integer.parseInt(textFieldColumn.getText()) < 1 || Integer.parseInt(textFieldColumn.getText()) > 5) {
+                textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 7");
             } else {
-                System.out.println("Book not selected");
-                BookModels.add(new BookModel(textFieldTitle.getText(), textFieldAuthor.getText(), textAreaSummary.getText(), Integer.parseInt(textFieldColumn.getText()), Integer.parseInt(textFieldRow.getText()), Integer.parseInt(textFieldParution.getText())));
+                if(lastBookSelected != -1) { // If a book is selected
+                    // Edit lastBookSelected
+                    BookModels.get(lastBookSelected).setTableColumTitle(textFieldTitle.getText());
+                    BookModels.get(lastBookSelected).setTableColumAuthor(textFieldAuthor.getText());
+                    BookModels.get(lastBookSelected).setTableColumSummary(textAreaSummary.getText());
+                    BookModels.get(lastBookSelected).setTableColumColumn(Integer.parseInt(textFieldColumn.getText()));
+                    BookModels.get(lastBookSelected).setTableColumRow(Integer.parseInt(textFieldRow.getText()));
+                    BookModels.get(lastBookSelected).setTableColumParution(Integer.parseInt(textFieldParution.getText()));
+
+                    // Update text
+                    textLogs.setText("Le livre " + textFieldTitle.getText() +  " a bien été modifié");
+
+                    // Reset all textFields
+                    textFieldTitle.setText("");
+                    textFieldAuthor.setText("");
+                    textAreaSummary.setText("");
+                    textFieldColumn.setText("");
+                    textFieldRow.setText("");
+                    textFieldParution.setText("");
+
+                    // Reset lastBookSelected
+                    lastBookSelected = -1;
+
+                    // Show changements
+                    tbData.refresh();
+                } else { // If no book is selected
+                    // Add a new book
+                    BookModels.add(new BookModel(textFieldTitle.getText(), textFieldAuthor.getText(), textAreaSummary.getText(), Integer.parseInt(textFieldColumn.getText()), Integer.parseInt(textFieldRow.getText()), Integer.parseInt(textFieldParution.getText())));
+                    textLogs.setText("Le livre " + textFieldTitle.getText() +  " a bien été créer");
+                }
             }
         });
 
-        tbData.setOnMouseClicked(event -> {
+        tbData.setOnMouseClicked(event -> { // On click select a book
             // Show selected book
             BookModel selectedBook = tbData.getSelectionModel().getSelectedItem();
             textFieldTitle.setText(selectedBook.getTableColumTitle());
@@ -105,11 +135,17 @@ public class MainController implements Initializable {
             lastBookSelected = tbData.getSelectionModel().getSelectedIndex();
         });
 
-        buttonDeleteBook.setOnMouseClicked(event -> {
-            if(lastBookSelected != -1) {
+        buttonDeleteBook.setOnMouseClicked(event -> { // On click delete a book
+            if(lastBookSelected != -1) { // If a book is selected
                 BookModels.remove(lastBookSelected);
                 lastBookSelected = -1;
+                textLogs.setText("Le livre a bien été supprimé");
             }
+        });
+
+        // On menuItemQuit click, close the application
+        menuItemQuit.setOnAction(event -> {
+            System.exit(0);
         });
     }
 

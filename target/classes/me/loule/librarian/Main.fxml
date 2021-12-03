@@ -32,7 +32,6 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -46,6 +45,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox prefHeight="500.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.loule.librarian.controller.MainController">
     <children>
@@ -61,7 +61,7 @@
                         <Menu mnemonicParsing="false" text="File">
                             <items>
                                 <MenuItem fx:id="Fichier" mnemonicParsing="false" text="Fichier" />
-                                <MenuItem fx:id="Quitter" mnemonicParsing="false" text="Quitter" />
+                                <MenuItem fx:id="menuItemQuit" mnemonicParsing="false" text="Quitter" />
                             </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
@@ -94,11 +94,12 @@
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                                 </columnResizePolicy>
                             </TableView>
-                        <Button fx:id="buttonDeleteBook" mnemonicParsing="false" text="Supprimer le livre">
-                           <VBox.margin>
-                              <Insets bottom="10.0" top="10.0" />
-                           </VBox.margin>
-                        </Button>
+                        <HBox prefWidth="524.0">
+                           <children>
+                              <Button fx:id="buttonDeleteBook" mnemonicParsing="false" text="Supprimer le livre" />
+                              <Text fx:id="textLogs" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="481.21630859375" />
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                       <HBox prefHeight="370.0" prefWidth="200.0" style="-fx-padding: 10;">
