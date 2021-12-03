@@ -78,6 +78,8 @@ public class MainController implements Initializable {
 
         tbData.setItems(BookModels); // Show defaults books
 
+        //Filling Form
+
         buttonAddBook.setOnMouseClicked(event -> { // On click add a new book
             if(textFieldTitle.getText().isEmpty() || textFieldAuthor.getText().isEmpty() || textFieldParution.getText().isEmpty() || textFieldRow.getText().isEmpty() || textFieldColumn.getText().isEmpty() || textAreaSummary.getText().isEmpty()) {
                 textLogs.setText("Veuillez remplir tous les champs");
@@ -87,6 +89,8 @@ public class MainController implements Initializable {
                 textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 7");
             } else if(Integer.parseInt(textFieldColumn.getText()) < 1 || Integer.parseInt(textFieldColumn.getText()) > 5) {
                 textLogs.setText("Veuillez remplir les champs avec des nombres entre 1 et 5");
+            }else if(Integer.parseInt(textFieldParution.getText()) > Integer.parseInt(java.time.LocalDate.now().toString().substring(0, 4))) {
+                textLogs.setText("Veuillez remplir les champs avec la bonne Année");
             } else {
                 if(lastBookSelected != -1) { // If a book is selected
                     // Edit lastBookSelected
