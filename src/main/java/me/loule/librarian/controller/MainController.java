@@ -71,7 +71,24 @@ public class MainController implements Initializable {
         tbData.setItems(BookModels); // Show defaults books
 
         buttonAddBook.setOnMouseClicked(event -> {
-            BookModels.add(new BookModel(textFieldTitle.getText(), textFieldAuthor.getText(), textAreaSummary.getText(), Integer.parseInt(textFieldColumn.getText()), Integer.parseInt(textFieldRow.getText()), Integer.parseInt(textFieldParution.getText())));
+            System.out.println(lastBookSelected);
+            if(lastBookSelected != -1) {
+                System.out.println("Book selected");
+                // Edit lastBookSelected
+                BookModels.get(lastBookSelected).setTableColumTitle(textFieldTitle.getText());
+                BookModels.get(lastBookSelected).setTableColumAuthor(textFieldAuthor.getText());
+                BookModels.get(lastBookSelected).setTableColumSummary(textAreaSummary.getText());
+                BookModels.get(lastBookSelected).setTableColumColumn(Integer.parseInt(textFieldColumn.getText()));
+                BookModels.get(lastBookSelected).setTableColumRow(Integer.parseInt(textFieldRow.getText()));
+                BookModels.get(lastBookSelected).setTableColumParution(Integer.parseInt(textFieldParution.getText()));
+                lastBookSelected = -1;
+
+                // Show changements
+                tbData.refresh();
+            } else {
+                System.out.println("Book not selected");
+                BookModels.add(new BookModel(textFieldTitle.getText(), textFieldAuthor.getText(), textAreaSummary.getText(), Integer.parseInt(textFieldColumn.getText()), Integer.parseInt(textFieldRow.getText()), Integer.parseInt(textFieldParution.getText())));
+            }
         });
 
         tbData.setOnMouseClicked(event -> {
